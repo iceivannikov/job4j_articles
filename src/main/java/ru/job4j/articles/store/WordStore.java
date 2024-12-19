@@ -109,5 +109,4 @@ public class WordStore implements Store<Word>, AutoCloseable {
             connection.close();
         }
     }
-
 }

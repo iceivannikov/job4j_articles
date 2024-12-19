@@ -36,6 +36,8 @@ public class ArticleStore implements Store<Article>, AutoCloseable {
                     properties.getProperty("username"),
                     properties.getProperty("password")
             );
+            var statement = connection.createStatement();
+            statement.execute("SET FILES WRITE DELAY 10000");
         } catch (SQLException throwables) {
             LOGGER.error("Не удалось выполнить операцию: { }", throwables.getCause());
             throw new IllegalStateException();
